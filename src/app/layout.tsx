@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -19,13 +19,17 @@ export const metadata: Metadata = {
     "Din guide till en hälsosam livsstil med näringsrika recept och effektiva träningsprogram – för alla nivåer.",
 };
 
+export const viewport: Viewport = {
+  viewportFit: "cover",
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="sv"
       className={`${inter.variable} ${poppins.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-white font-sans text-forest">
+      <body className="flex min-h-full flex-col bg-forest pb-[calc(4rem+env(safe-area-inset-bottom))] font-sans text-forest lg:pb-0">
         {children}
       </body>
     </html>

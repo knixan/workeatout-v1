@@ -1,10 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type RecipeCardProps = {
   title: string;
   description: string;
   image: string;
   imageAlt: string;
+  href: string;
 };
 
 export default function RecipeCard({
@@ -12,9 +14,13 @@ export default function RecipeCard({
   description,
   image,
   imageAlt,
+  href,
 }: RecipeCardProps) {
   return (
-    <article className="relative aspect-square overflow-hidden rounded-2xl shadow-md">
+    <Link
+      href={href}
+      className="relative block aspect-square overflow-hidden rounded-2xl shadow-md transition-shadow hover:shadow-xl"
+    >
       <Image
         src={image}
         alt={imageAlt}
@@ -28,6 +34,6 @@ export default function RecipeCard({
         </h3>
         <p className="mt-1 text-sm font-medium">{description}</p>
       </div>
-    </article>
+    </Link>
   );
 }

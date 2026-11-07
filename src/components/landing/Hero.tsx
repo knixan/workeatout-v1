@@ -11,9 +11,9 @@ const features = [
 
 export default function Hero() {
   return (
-    <section className="relative flex flex-col overflow-hidden bg-forest xl:block xl:aspect-[1920/1067]">
-      <div className="relative z-10 w-full px-6 pt-36 pb-10 md:pt-32 lg:px-12 xl:pt-40 2xl:px-24 2xl:pt-52">
-        <div className="xl:max-w-[480px] 2xl:max-w-[36vw]">
+    <section className="relative flex flex-col overflow-hidden bg-forest xl:mt-16 xl:block xl:aspect-1920/1067">
+      <div className="relative z-10 w-full px-6 pt-24 pb-10 lg:px-12 lg:pt-28 xl:pt-24 2xl:px-24 2xl:pt-36">
+        <div className="xl:max-w-120 2xl:max-w-[36vw]">
           <h1 className="font-heading text-4xl leading-tight font-semibold text-white md:text-5xl 2xl:text-6xl">
             ÄT BRA.
             <br />
@@ -29,13 +29,13 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-wrap gap-4 font-heading text-sm font-semibold text-white">
             <Link
-              href="#traningsprogram"
+              href="/traning"
               className="rounded-lg bg-pink px-6 py-3 transition-opacity hover:opacity-85"
             >
-              Kom igång idag!
+              Börja träna
             </Link>
             <Link
-              href="#maltider"
+              href="/recept"
               className="rounded-lg border border-lime px-6 py-3 transition-colors hover:bg-lime"
             >
               Utforska recept
@@ -56,7 +56,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative h-72 sm:h-96 xl:absolute xl:inset-0 xl:h-auto">
+      <div className="relative h-80 sm:h-112 lg:h-128 xl:absolute xl:inset-0 xl:h-auto">
         <Image
           src="/workeatout-hero.png"
           alt="Grönt äpple, hantlar, kettlebell, shaker och en skål med kyckling, ris och broccoli"

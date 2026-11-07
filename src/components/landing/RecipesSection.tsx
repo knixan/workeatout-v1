@@ -5,24 +5,28 @@ import SectionHeading from "./SectionHeading";
 const recipes = [
   {
     title: "Frukost",
+    href: "/recept?kategori=frukost",
     description: "Energi för en bra start på dagen.",
     image: "/maltider/frukost.png",
     imageAlt: "Smoothiebowl med kiwi, jordgubbar, banan och pumpafrön",
   },
   {
     title: "Mellanmål",
+    href: "/recept?kategori=mellanmal",
     description: "Smarta mellanmål som håller dig på topp.",
     image: "/maltider/mellanmal.png",
     imageAlt: "Overnight oats i glasburk toppad med hallon",
   },
   {
     title: "Lunch/Middag",
+    href: "/recept?kategori=lunch-middag",
     description: "Mättande och balanserande huvudmåltider",
     image: "/maltider/middag-lunch.png",
     imageAlt: "Skål med grillad kyckling, quinoa, avokado och gurka",
   },
   {
     title: "Kvällsmat",
+    href: "/recept?kategori=kvallsmat",
     description: "Lätta och näringsrika måltider för en god natts sömn",
     image: "/maltider/kvallsmat.png",
     imageAlt: "Omelettrullar med kalkon och spenat",
@@ -31,7 +35,7 @@ const recipes = [
 
 export default function RecipesSection() {
   return (
-    <section id="maltider" className="scroll-mt-8 bg-surface px-6 py-12">
+    <section id="maltider" className="scroll-mt-20 bg-surface lg:scroll-mt-28 px-6 py-12">
       <SectionHeading
         icon={LuSalad}
         title="Hälsosamma recept"

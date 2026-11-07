@@ -7,7 +7,7 @@ import Navbar from "@/components/site/Navbar";
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <Navbar current="/" />
       <main className="flex-1">
         <Hero />
         <RecipesSection />

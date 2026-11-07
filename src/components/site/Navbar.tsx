@@ -1,64 +1,73 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LuLogIn } from "react-icons/lu";
+import {
+  LuBookOpen,
+  LuClipboardList,
+  LuDumbbell,
+  LuHouse,
+  LuUtensils,
+} from "react-icons/lu";
 
 const links = [
-  { href: "/", label: "Hem", active: true },
-  { href: "#maltider", label: "Måltider" },
-  { href: "#traningsprogram", label: "Träningsprogram" },
+  { href: "/", label: "Hem", icon: LuHouse },
+  { href: "/#maltider", label: "Måltider", icon: LuUtensils },
+  {
+    href: "/#traningsprogram",
+    label: "Träningsprogram",
+    shortLabel: "Program",
+    icon: LuClipboardList,
+  },
+  { href: "/traning", label: "Träning", icon: LuDumbbell },
+  { href: "/recept", label: "Recept", icon: LuBookOpen },
 ];
 
-export default function Navbar() {
+type NavbarProps = {
+  current: "/" | "/recept" | "/traning";
+};
+
+export default function Navbar({ current }: NavbarProps) {
   return (
-    <header className="absolute inset-x-0 top-0 z-20">
-      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-4 px-6 py-5 md:gap-x-8 lg:px-12 2xl:px-24">
-        <Link href="/" aria-label="Workeatout! startsida">
+    <header className="fixed inset-x-0 top-0 z-50 bg-forest shadow-md">
+      <div className="flex h-14 items-center px-6 lg:grid lg:h-16 lg:grid-cols-[1fr_auto_1fr] lg:px-12 2xl:px-24">
+        <Link href="/" aria-label="Workeatout! startsida" className="w-fit">
           <Image
             src="/navbar-loggo.png"
             alt="Workeatout!"
             width={1420}
             height={410}
             preload
-            className="h-auto w-28 sm:w-36 md:w-48"
+            className="h-auto w-32 md:w-40"
           />
         </Link>
 
+        {/* Under lg blir menyn en fast ikonrad längst ner, nära tummen. */}
         <nav
           aria-label="Huvudmeny"
-          className="order-last w-full md:order-none md:w-auto"
+          className="fixed inset-x-0 bottom-0 border-t border-sage/40 bg-forest pb-[env(safe-area-inset-bottom)] lg:static lg:border-0 lg:bg-transparent lg:pb-0"
         >
-          <ul className="flex items-center gap-6 font-heading text-sm font-medium text-white lg:gap-10">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  aria-current={link.active ? "page" : undefined}
-                  className={`border-b-2 pb-1 transition-colors hover:border-pink ${
-                    link.active ? "border-pink" : "border-transparent"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+          <ul className="grid grid-cols-5 font-heading text-[11px] font-medium text-white lg:flex lg:items-center lg:gap-x-8 lg:text-sm xl:gap-x-10">
+            {links.map(({ href, label, shortLabel, icon: Icon }) => {
+              const isCurrent = href === current;
+              return (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    aria-current={isCurrent ? "page" : undefined}
+                    className={`flex h-16 flex-col items-center justify-center gap-1 transition-colors lg:h-auto lg:border-b-2 lg:pb-1 lg:hover:border-pink ${
+                      isCurrent
+                        ? "text-pink lg:border-pink lg:text-white"
+                        : "lg:border-transparent"
+                    }`}
+                  >
+                    <Icon aria-hidden className="size-6 lg:hidden" />
+                    <span className="lg:hidden">{shortLabel ?? label}</span>
+                    <span className="hidden lg:inline">{label}</span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
-
-        <div className="flex items-center gap-2 font-heading text-xs font-medium text-white sm:gap-3 sm:text-sm">
-          <Link
-            href="#"
-            className="rounded-md bg-pink px-2.5 py-1.5 sm:px-3 transition-opacity hover:opacity-85"
-          >
-            Bli medlem!
-          </Link>
-          <Link
-            href="#"
-            className="flex items-center gap-2 rounded-md border border-lime px-2.5 py-1.5 sm:px-3 transition-colors hover:bg-lime"
-          >
-            <LuLogIn aria-hidden className="size-4" />
-            Logga in!
-          </Link>
-        </div>
       </div>
     </header>
   );

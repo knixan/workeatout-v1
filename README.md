@@ -2,7 +2,13 @@
 
 Workeatout! är en svensk webbplats om hälsosam livsstil, med näringsrika recept och träningsprogram för alla nivåer.
 
-Just nu består projektet av startsidan. Den har en hero-sektion, fyra måltidskategorier (frukost, mellanmål, lunch/middag och kvällsmat) och en sektion för träningsprogram.
+Projektet består av tre sidor:
+
+- **Startsidan** har en hero-sektion, fyra måltidskategorier (frukost, mellanmål, lunch/middag och kvällsmat) och tre träningsformer. Korten länkar vidare till rätt kategori eller form.
+- **Receptsidan** (`/recept`) visar alla recept, med sökning och chips för att filtrera på måltid.
+- **Träningssidan** (`/traning`) visar 9 träningsupplägg, där chips väljer träningsform och 3, 4 eller 5 dagar i veckan.
+
+Recept och träning är mockdata i `src/data/` tills databas och admin finns på plats.
 
 ## Tekniker
 
@@ -44,10 +50,17 @@ src/
 ├── app/
 │   ├── globals.css      Tailwind, färger och typsnittsvariabler
 │   ├── layout.tsx       Rotlayout, typsnitt och metadata
-│   └── page.tsx         Startsidan
-└── components/
-    ├── landing/         Sektioner som hör till startsidan
-    └── site/            Delade delar, till exempel Navbar och Footer
+│   ├── page.tsx         Startsidan
+│   ├── recept/          Receptsidan
+│   └── traning/         Träningssidan
+├── components/
+│   ├── landing/         Sektioner som hör till startsidan
+│   ├── recipes/         Receptlistan med sökning och filter
+│   ├── site/            Delade delar, till exempel Navbar, Footer och Chip
+│   └── training/        Träningsuppläggen med chips
+└── data/
+    ├── recipes.ts       Mockdata för recepten
+    └── training.ts      Mockdata för träningsuppläggen
 ```
 
 Sidor i `src/app` bygger på komponenter som importeras från `src/components`. Använd `Image` från `next/image` för bilder och `Link` från `next/link` för interna länkar.
@@ -68,8 +81,7 @@ Rubriker använder typsnittet Poppins (`font-heading`) och övrig text använder
 
 ## Status
 
-Startsidan är på plats. Det här återstår:
+Startsidan, receptsidan och träningssidan är på plats. Det här återstår:
 
-- Innehåll i sektionen Träningsprogram
-- Sidor för recept och måltider
+- Databas och admin för recept och träning
 - Sidor för "Bli medlem!" och "Logga in!", som knapparna i navbaren ska länka till
