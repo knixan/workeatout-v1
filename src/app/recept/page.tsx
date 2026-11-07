@@ -6,9 +6,9 @@ import Navbar from "@/components/site/Navbar";
 import PageHeader from "@/components/site/PageHeader";
 import {
   recipeCategories,
-  recipeNutritionNote,
-  recipeReadingGuide,
+  recipeGuides,
   recipes,
+  recipeUsageGuide,
 } from "@/data/recipes";
 
 export const metadata: Metadata = {
@@ -31,25 +31,21 @@ export default async function RecipesPage({
       <main className="flex-1 bg-surface">
         <PageHeader
           title="Recept"
-          subtitle="Näringsrika och goda måltider för hela dagen"
+          subtitle="Proteinrika recept med kcal, såser och mer smak"
         />
 
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="mx-auto mb-8 max-w-3xl">
-            <InfoDetails
-              title="Så läser du recepten"
-              paragraphs={recipeReadingGuide}
-            />
+            <InfoDetails {...recipeUsageGuide} />
           </div>
 
           <RecipeBrowser recipes={recipes} initialCategory={initialCategory} />
 
-          <aside className="mx-auto mt-12 max-w-3xl text-center text-sm leading-relaxed">
-            <h2 className="font-heading font-semibold text-sage">
-              Bra att känna till
-            </h2>
-            <p className="mt-2">{recipeNutritionNote}</p>
-          </aside>
+          <div className="mx-auto mt-12 max-w-3xl space-y-4">
+            {recipeGuides.map((guide) => (
+              <InfoDetails key={guide.title} {...guide} />
+            ))}
+          </div>
         </section>
       </main>
       <Footer />

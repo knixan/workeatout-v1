@@ -1,9 +1,17 @@
 import { LuChevronDown } from "react-icons/lu";
-import { recipeCategories, recipeKcal, type Recipe } from "@/data/recipes";
+import {
+  recipeCategories,
+  type NutritionValue,
+  type Recipe,
+} from "@/data/recipes";
 
 type RecipeListCardProps = {
   recipe: Recipe;
 };
+
+function formatValue(value: NutritionValue) {
+  return typeof value === "number" ? String(value) : value.join("–");
+}
 
 export default function RecipeListCard({ recipe }: RecipeListCardProps) {
   const { title, category, ingredients, instructions, nutrition } = recipe;
@@ -27,14 +35,15 @@ export default function RecipeListCard({ recipe }: RecipeListCardProps) {
       <dl className="mt-4 grid grid-cols-3 gap-2 text-center">
         <div className="col-span-3 rounded-lg bg-surface px-1 py-2">
           <dd className="font-heading text-base font-semibold text-pink">
-            ca {recipeKcal(nutrition)} kcal
+            ca {formatValue(nutrition.kcal)} kcal
           </dd>
           <dt className="text-xs text-forest">Kalorier per portion</dt>
         </div>
         {macros.map(({ label, value }) => (
           <div key={label} className="rounded-lg bg-surface px-1 py-2">
             <dd className="font-heading text-sm font-semibold text-sage">
-              ca {value} g
+              {typeof value === "number" && "ca "}
+              {formatValue(value)} g
             </dd>
             <dt className="text-xs text-forest">{label}</dt>
           </div>
