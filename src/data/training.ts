@@ -3,7 +3,7 @@
 export const trainingForms = [
   {
     id: "styrka-puls",
-    label: "Styrka + puls",
+    label: "Styrka & puls",
     description:
       "Vill kombinera styrketräning, parövningar och ett tydligt pulshöjande inslag.",
   },
@@ -15,7 +15,7 @@ export const trainingForms = [
   },
   {
     id: "muskler-kondition",
-    label: "Muskler + kondition",
+    label: "Muskler & kondition",
     description:
       "Vill bygga/behålla muskler och samtidigt få in mer planerad kondition.",
   },
@@ -109,7 +109,7 @@ function ex(name: string, sets: string, note: string): Exercise {
 }
 
 export const trainingPrograms: TrainingProgram[] = [
-  // 1. Styrka + puls – 3 dagar/vecka
+  // 1. Styrka & puls – 3 dagar/vecka
   {
     id: "styrka-puls-3",
     form: "styrka-puls",
@@ -161,7 +161,7 @@ export const trainingPrograms: TrainingProgram[] = [
     ],
   },
 
-  // 2. Styrka + puls – 4 dagar/vecka
+  // 2. Styrka & puls – 4 dagar/vecka
   {
     id: "styrka-puls-4",
     form: "styrka-puls",
@@ -222,7 +222,7 @@ export const trainingPrograms: TrainingProgram[] = [
     ],
   },
 
-  // 3. Styrka + puls – 5 dagar/vecka
+  // 3. Styrka & puls – 5 dagar/vecka
   {
     id: "styrka-puls-5",
     form: "styrka-puls",
@@ -468,7 +468,7 @@ export const trainingPrograms: TrainingProgram[] = [
     ],
   },
 
-  // 7. Muskler + kondition – 3 dagar/vecka
+  // 7. Muskler & kondition – 3 dagar/vecka
   {
     id: "muskler-kondition-3",
     form: "muskler-kondition",
@@ -516,7 +516,7 @@ export const trainingPrograms: TrainingProgram[] = [
     ],
   },
 
-  // 8. Muskler + kondition – 4 dagar/vecka
+  // 8. Muskler & kondition – 4 dagar/vecka
   {
     id: "muskler-kondition-4",
     form: "muskler-kondition",
@@ -574,7 +574,7 @@ export const trainingPrograms: TrainingProgram[] = [
     ],
   },
 
-  // 9. Muskler + kondition – 5 dagar/vecka
+  // 9. Muskler & kondition – 5 dagar/vecka
   {
     id: "muskler-kondition-5",
     form: "muskler-kondition",
