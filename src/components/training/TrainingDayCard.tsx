@@ -8,7 +8,7 @@ type TrainingDayCardProps = {
 export default function TrainingDayCard({ day }: TrainingDayCardProps) {
   return (
     <article className="rounded-2xl bg-white p-5 shadow-md">
-      <h3 className="font-heading text-lg leading-snug font-semibold text-forest">
+      <h3 className="font-heading text-xl leading-snug font-semibold text-pink">
         {day.title}
       </h3>
 

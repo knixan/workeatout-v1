@@ -77,20 +77,16 @@ export default function TrainingBrowser({
 
       {program && (
         <div aria-live="polite" className="mt-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="font-heading text-2xl font-semibold text-sage uppercase md:text-3xl">
-              {selectedForm?.label} – {days} dagar/vecka
-            </h2>
-            <p className="mt-2 leading-relaxed">
-              <span className="font-semibold">Fokus:</span> {program.focus}
-            </p>
-            <p className="mt-2 text-sm leading-relaxed">
-              <span className="font-semibold">Exempel på veckorytm:</span>{" "}
-              {trainingWeekRhythms[days]}
-            </p>
+          <h2 className="text-center font-heading text-3xl font-semibold text-pink md:text-4xl">
+            {selectedForm?.label} – {days} dagar/vecka
+          </h2>
+
+          <div className="mt-5 space-y-5 rounded-2xl bg-forest p-6 font-heading leading-relaxed text-white md:p-10 md:text-lg">
+            <p>Fokus: {program.focus}</p>
+            <p>Exempel på veckorytm: {trainingWeekRhythms[days]}</p>
           </div>
 
-          <div className="mt-8 grid items-start gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-6 grid items-start gap-6 md:grid-cols-2 xl:grid-cols-3">
             {program.days.map((day) => (
               <TrainingDayCard key={day.title} day={day} />
             ))}
